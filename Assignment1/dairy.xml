@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DairyProducts>
+    <DairyProduct>
+        <name>Milk</name>
+        <price>2.99</price>
+        <description>
+            Fresh cow's milk, full fat, 1 gallon.
+        </description>
+    </DairyProduct>
+    <DairyProduct>
+        <name>Yogurt</name>
+        <price>1.50</price>
+        <description>
+            Greek yogurt, plain, 32 oz.
+        </description>
+    </DairyProduct>
+    <DairyProduct>
+        <name>panner</name>
+        <price>4.75</price>
+        <description>
+            Cheddar cheese, aged, 8 oz block.
+        </description>
+    </DairyProduct>
+    <DairyProduct>
+        <name>Butter</name>
+        <price>2.25</price>
+        <description>
+            Salted butter, 1 lb.
+        </description>
+    </DairyProduct>
+</DairyProducts>

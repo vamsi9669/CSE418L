@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XML Data Downloader</title>
+</head>
+<body>
+    <h1>XML Data Downloader</h1>
+    <form id="data-form">
+        <label for="num-products">Number of Products:</label>
+        <input type="number" id="num-products" name="num-products" required><br><br>
+
+        <div id="product-details"></div>
+
+        <button type="button" id="generate-button">Generate XML</button>
+    </form>
+
+    <script>
+        document.getElementById('generate-button').addEventListener('click', function() {
+            const numProducts = parseInt(document.getElementById('num-products').value, 10);
+            const productDetails = [];
+
+            for (let i = 0; i < numProducts; i++) {
+                const productName = prompt(`Enter name for product ${i + 1}`);
+                const productPrice = prompt(`Enter price for product ${i + 1}`);
+                const productDescription = prompt(`Enter description for product ${i + 1}`);
+
+                productDetails.push({
+                    name: productName,
+                    price: productPrice,
+                    description: productDescription
+                });
+            }
+
+            let xmlData = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+            xmlData += `<DairyProducts>\n`;
+
+            for (const product of productDetails) {
+                xmlData += `    <DairyProduct>\n`;
+                xmlData += `        <name>${product.name}</name>\n`;
+                xmlData += `        <price>${product.price}</price>\n`;
+                xmlData += `        <description>${product.description}</description>\n`;
+                xmlData += `    </DairyProduct>\n`;
+            }
+
+            xmlData += `</DairyProducts>\n`;
+
+            const blob = new Blob([xmlData], { type: 'application/xml' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'dairy_products.xml';
+            a.click();
+
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>
